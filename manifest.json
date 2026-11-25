@@ -1,0 +1,434 @@
+{
+  "name": "Turbo",
+  "namespace": "Saffron",
+  "version_number": "5.6.1",
+  "description": "Saffron-Turbo 5.6.0 - Flagship performance layer for Brotato 1.2.0.3 (ModLoader 6). Combines adaptive physics tiers with VisualServer physics interpolation (enable_interpolation), baked enemy orb outlines (optimize_projectiles), isolated enemy hitbox Physics2D layer (isolate_enemy_hitbox_layer), Z-bucketed shadows and gold (z_bucket_shadows_gold), capped visible burn particles (max_visible_burns), optimized enemy attack behaviors, zero-realloc explosion smoke and VFX pools, prewarmed wave pools, category Haas audio dedup, and batched shop/HUD updates.",
+  "website_url": "",
+  "dependencies": [],
+  "extra": {
+    "godot": {
+      "id": "Saffron-Turbo",
+      "authors": [
+        "Saffron"
+      ],
+      "godot_mod": true,
+      "incompatibilities": [
+        "Saffron-Optimizer",
+        "Secdude-Optimizer"
+      ],
+      "compatible_game_version": [
+        "1.2.0.3"
+      ],
+      "compatible_mod_loader_version": [
+        "6.0.0"
+      ],
+      "optional_dependencies": [],
+      "load_before": [],
+      "tags": [
+        "Utilities"
+      ],
+      "config_defaults": {
+        "adaptive_quality": true,
+        "cache_weapon_targets": true,
+        "target_cache_frames": 3,
+        "stagger_target_scans": true,
+        "fast_nearest_scan": true,
+        "pool_projectile_effects": true,
+        "scale_explosion_smoke": true,
+        "throttle_particle_sim_fps": true,
+        "cull_offscreen_effects": true,
+        "cull_margin": 160,
+        "throttle_damage_numbers": true,
+        "max_floating_texts": 40,
+        "batch_damage_numbers": true,
+        "guard_weapon_property_writes": true,
+        "cache_manual_aim": true,
+        "throttle_slow_scans": true,
+        "slow_scan_interval_ms": 250,
+        "limit_screenshake": true,
+        "screenshake_max_intensity": 1.5,
+        "screenshake_min_interval_ms": 150,
+        "throttle_flashes": true,
+        "flash_interval_ms": 100,
+        "batch_friendly_flash": true,
+        "guard_unit_transforms": true,
+        "fix_idle_burn_spread": true,
+        "dedup_audio": true,
+        "particle_budget_scale": 1.0,
+        "stream_potato": false,
+        "potato_physics": true,
+        "emergency_physics_hz": 20,
+        "fps_limit": 0,
+        "disable_object_picking": true,
+        "native_switches": false,
+        "min_tier": 0,
+        "disable_vsync": false,
+        "load_spike_enemies": 300,
+        "pause_crowd_idle_anim": true,
+        "crowd_anim_threshold": 60,
+        "spiral_guard": true,
+        "agent_telemetry": false,
+        "enable_worker_thread": false,
+        "worker_min_enemies": 120,
+        "pool_outline_materials": true,
+        "fast_canvas_damage_numbers": true,
+        "compress_excess_fruits": false,
+        "max_ground_fruits": 40,
+        "relax_enemy_collisions": false,
+        "relax_collision_threshold": 140,
+        "enable_interpolation": true,
+        "max_visible_burns": 24,
+        "isolate_enemy_hitbox_layer": true,
+        "z_bucket_shadows_gold": true,
+        "optimize_projectiles": true,
+        "optimize_attack_behaviors": true,
+        "optimize_hud_inventory": true,
+        "prewarm_pools": true,
+        "config_version": 4
+      },
+      "config_schema": {
+        "title": "Saffron-Turbo Configuration",
+        "description": "Saffron-Turbo 5.6.0 performance settings",
+        "type": "object",
+        "properties": {
+          "adaptive_quality": {
+            "title": "adaptive_quality",
+            "type": "boolean",
+            "default": true
+          },
+          "cache_weapon_targets": {
+            "title": "cache_weapon_targets",
+            "type": "boolean",
+            "default": true
+          },
+          "target_cache_frames": {
+            "title": "target_cache_frames",
+            "type": "integer",
+            "default": 3,
+            "minimum": 1,
+            "maximum": 6,
+            "multipleOf": 1
+          },
+          "stagger_target_scans": {
+            "title": "stagger_target_scans",
+            "type": "boolean",
+            "default": true
+          },
+          "fast_nearest_scan": {
+            "title": "fast_nearest_scan",
+            "type": "boolean",
+            "default": true
+          },
+          "pool_projectile_effects": {
+            "title": "pool_projectile_effects",
+            "type": "boolean",
+            "default": true
+          },
+          "scale_explosion_smoke": {
+            "title": "scale_explosion_smoke",
+            "type": "boolean",
+            "default": true
+          },
+          "throttle_particle_sim_fps": {
+            "title": "throttle_particle_sim_fps",
+            "type": "boolean",
+            "default": true
+          },
+          "cull_offscreen_effects": {
+            "title": "cull_offscreen_effects",
+            "type": "boolean",
+            "default": true
+          },
+          "cull_margin": {
+            "title": "cull_margin",
+            "type": "integer",
+            "default": 160,
+            "minimum": 0,
+            "maximum": 400,
+            "multipleOf": 20
+          },
+          "throttle_damage_numbers": {
+            "title": "throttle_damage_numbers",
+            "type": "boolean",
+            "default": true
+          },
+          "max_floating_texts": {
+            "title": "max_floating_texts",
+            "type": "integer",
+            "default": 40,
+            "minimum": 10,
+            "maximum": 100,
+            "multipleOf": 5
+          },
+          "batch_damage_numbers": {
+            "title": "batch_damage_numbers",
+            "type": "boolean",
+            "default": true
+          },
+          "guard_weapon_property_writes": {
+            "title": "guard_weapon_property_writes",
+            "type": "boolean",
+            "default": true
+          },
+          "cache_manual_aim": {
+            "title": "cache_manual_aim",
+            "type": "boolean",
+            "default": true
+          },
+          "throttle_slow_scans": {
+            "title": "throttle_slow_scans",
+            "type": "boolean",
+            "default": true
+          },
+          "slow_scan_interval_ms": {
+            "title": "slow_scan_interval_ms",
+            "type": "integer",
+            "default": 250,
+            "minimum": 0,
+            "maximum": 1000,
+            "multipleOf": 50
+          },
+          "limit_screenshake": {
+            "title": "limit_screenshake",
+            "type": "boolean",
+            "default": true
+          },
+          "screenshake_max_intensity": {
+            "title": "screenshake_max_intensity",
+            "type": "number",
+            "default": 1.5,
+            "minimum": 0.0,
+            "maximum": 3.0,
+            "multipleOf": 0.25
+          },
+          "screenshake_min_interval_ms": {
+            "title": "screenshake_min_interval_ms",
+            "type": "integer",
+            "default": 150,
+            "minimum": 0,
+            "maximum": 500,
+            "multipleOf": 25
+          },
+          "throttle_flashes": {
+            "title": "throttle_flashes",
+            "type": "boolean",
+            "default": true
+          },
+          "flash_interval_ms": {
+            "title": "flash_interval_ms",
+            "type": "integer",
+            "default": 100,
+            "minimum": 0,
+            "maximum": 300,
+            "multipleOf": 25
+          },
+          "batch_friendly_flash": {
+            "title": "batch_friendly_flash",
+            "type": "boolean",
+            "default": true
+          },
+          "guard_unit_transforms": {
+            "title": "guard_unit_transforms",
+            "type": "boolean",
+            "default": true
+          },
+          "fix_idle_burn_spread": {
+            "title": "fix_idle_burn_spread",
+            "type": "boolean",
+            "default": true
+          },
+          "dedup_audio": {
+            "title": "dedup_audio",
+            "type": "boolean",
+            "default": true
+          },
+          "particle_budget_scale": {
+            "title": "particle_budget_scale",
+            "type": "number",
+            "default": 1.0,
+            "minimum": 0.1,
+            "maximum": 1.0,
+            "multipleOf": 0.05
+          },
+          "stream_potato": {
+            "title": "stream_potato",
+            "type": "boolean",
+            "default": false
+          },
+          "potato_physics": {
+            "title": "potato_physics",
+            "type": "boolean",
+            "default": true
+          },
+          "emergency_physics_hz": {
+            "title": "emergency_physics_hz",
+            "type": "integer",
+            "default": 20,
+            "minimum": 0,
+            "maximum": 30,
+            "multipleOf": 10
+          },
+          "fps_limit": {
+            "title": "fps_limit",
+            "type": "integer",
+            "default": 0,
+            "minimum": -1,
+            "maximum": 1,
+            "multipleOf": 1
+          },
+          "disable_object_picking": {
+            "title": "disable_object_picking",
+            "type": "boolean",
+            "default": true
+          },
+          "native_switches": {
+            "title": "native_switches",
+            "type": "boolean",
+            "default": false
+          },
+          "min_tier": {
+            "title": "min_tier",
+            "type": "integer",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 4,
+            "multipleOf": 1
+          },
+          "disable_vsync": {
+            "title": "disable_vsync",
+            "type": "boolean",
+            "default": false
+          },
+          "load_spike_enemies": {
+            "title": "load_spike_enemies",
+            "type": "integer",
+            "default": 300,
+            "minimum": 0,
+            "maximum": 3000,
+            "multipleOf": 50
+          },
+          "pause_crowd_idle_anim": {
+            "title": "pause_crowd_idle_anim",
+            "type": "boolean",
+            "default": true
+          },
+          "crowd_anim_threshold": {
+            "title": "crowd_anim_threshold",
+            "type": "integer",
+            "default": 60,
+            "minimum": 20,
+            "maximum": 300,
+            "multipleOf": 10
+          },
+          "spiral_guard": {
+            "title": "spiral_guard",
+            "type": "boolean",
+            "default": true
+          },
+          "agent_telemetry": {
+            "title": "agent_telemetry",
+            "type": "boolean",
+            "default": false
+          },
+          "enable_worker_thread": {
+            "title": "enable_worker_thread",
+            "type": "boolean",
+            "default": false
+          },
+          "worker_min_enemies": {
+            "title": "worker_min_enemies",
+            "type": "integer",
+            "default": 120,
+            "minimum": 40,
+            "maximum": 1000,
+            "multipleOf": 20
+          },
+          "pool_outline_materials": {
+            "title": "pool_outline_materials",
+            "type": "boolean",
+            "default": true
+          },
+          "fast_canvas_damage_numbers": {
+            "title": "fast_canvas_damage_numbers",
+            "type": "boolean",
+            "default": true
+          },
+          "compress_excess_fruits": {
+            "title": "compress_excess_fruits",
+            "type": "boolean",
+            "default": false
+          },
+          "max_ground_fruits": {
+            "title": "max_ground_fruits",
+            "type": "integer",
+            "default": 40,
+            "minimum": 10,
+            "maximum": 200,
+            "multipleOf": 5
+          },
+          "relax_enemy_collisions": {
+            "title": "relax_enemy_collisions",
+            "type": "boolean",
+            "default": false
+          },
+          "relax_collision_threshold": {
+            "title": "relax_collision_threshold",
+            "type": "integer",
+            "default": 140,
+            "minimum": 50,
+            "maximum": 1000,
+            "multipleOf": 10
+          },
+          "enable_interpolation": {
+            "title": "enable_interpolation",
+            "type": "boolean",
+            "default": true
+          },
+          "max_visible_burns": {
+            "title": "max_visible_burns",
+            "type": "integer",
+            "default": 24,
+            "minimum": 0,
+            "maximum": 100,
+            "multipleOf": 4
+          },
+          "isolate_enemy_hitbox_layer": {
+            "title": "isolate_enemy_hitbox_layer",
+            "type": "boolean",
+            "default": true
+          },
+          "z_bucket_shadows_gold": {
+            "title": "z_bucket_shadows_gold",
+            "type": "boolean",
+            "default": true
+          },
+          "optimize_projectiles": {
+            "title": "optimize_projectiles",
+            "type": "boolean",
+            "default": true
+          },
+          "optimize_attack_behaviors": {
+            "title": "optimize_attack_behaviors",
+            "type": "boolean",
+            "default": true
+          },
+          "optimize_hud_inventory": {
+            "title": "optimize_hud_inventory",
+            "type": "boolean",
+            "default": true
+          },
+          "prewarm_pools": {
+            "title": "prewarm_pools",
+            "type": "boolean",
+            "default": true
+          },
+          "config_version": {
+            "title": "config_version",
+            "type": "integer",
+            "default": 4
+          }
+        }
+      }
+    }
+  }
+}
